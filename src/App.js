@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+import generateRandomOperation from './scripts'
+import './style.css'
 
 function App() {
+  const [ operation, setOperation ] = useState('');
+  const [ answer, setAnswer ] = useState('');
+  const [ result, setResult ] = useState(0);
+
+  function handleVerify(e) {
+    e.preventDefault()
+
+    if(answer == result) {
+      alert('Acertou')
+    } else {
+      alert('Errou')
+    }
+    
+    newOperation();
+    setAnswer('')
+    document.getElementById('txtRes').focus()
+  }
+
+  function newOperation() {
+    const op = generateRandomOperation()
+    setOperation(`${op.n1} x ${op.n2}`)
+    setResult(op.res)
+  }
+
+  useEffect(newOperation, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+
+        <form onSubmit={handleVerify}>
+          <p className="operation">{operation}</p>
+          <input type="text" value={answer} id="txtRes" autocomplete="off" onChange={e => setAnswer(e.target.value)}/>
+          <button type="submit">Verify</button>
+        </form>
+
+    </main>
   );
 }
 
