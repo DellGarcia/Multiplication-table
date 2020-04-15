@@ -8,18 +8,19 @@ function App() {
   const [ answer, setAnswer ] = useState('');
   const [ result, setResult ] = useState(0);
 
+  const answerField = document.getElementById('txtRes')
+
   function handleVerify(e) {
     e.preventDefault()
 
     if(answer == result) {
-      alert('Acertou')
+      newOperation();
+      setAnswer('')
     } else {
-      alert('Errou')
+      alert('errou')
     }
     
-    newOperation();
-    setAnswer('')
-    document.getElementById('txtRes').focus()
+    answerField.focus()
   }
 
   function newOperation() {
@@ -35,7 +36,12 @@ function App() {
 
         <form onSubmit={handleVerify}>
           <p className="operation">{operation}</p>
-          <input type="text" value={answer} id="txtRes" autocomplete="off" onChange={e => setAnswer(e.target.value)}/>
+          <input 
+            type="number" 
+            value={answer} 
+            id="txtRes" 
+            autoComplete="off" 
+            onChange={e => setAnswer(e.target.value)}/>
           <button type="submit">Verify</button>
         </form>
 
