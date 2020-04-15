@@ -14,10 +14,11 @@ function App() {
     e.preventDefault()
 
     if(answer == result) {
+      answerField.style.border='1px solid #dcdce6'
       newOperation();
       setAnswer('')
     } else {
-      alert('errou')
+      answerField.style.border='1px solid #CD5C5C'
     }
     
     answerField.focus()
