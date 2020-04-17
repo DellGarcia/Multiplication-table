@@ -20,3 +20,9 @@ input, button, textarea {
 button {
     cursor: pointer;
 }
+
+div .content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
