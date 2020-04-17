@@ -8,11 +8,12 @@ import './global.css'
 function App() {
   const [ hits, setHits] = useState(0)
   const [ errors, setErros] = useState(0)
+  const [ limit, setLimit ] = useState(10)
 
   return (
     <div className="content">
-      <Header hits={hits} errors={errors}/>
-      <Main  hits={hits} errors={errors} setHits={setHits} setErrors={setErros}/>
+      <Header hits={hits} errors={errors} limit={limit} setLimit={setLimit}/>
+      <Main  hits={hits} errors={errors} setHits={setHits} setErrors={setErros} limit={limit}/>
     </div>
   );
 }

@@ -28,7 +28,7 @@ export default function Main(props) {
     }
   
     function newOperation() {
-      const op = generateRandomOperation()
+      const op = generateRandomOperation(props.limit)
       setOperation(`${op.n1} x ${op.n2}`)
       setResult(op.res)
     }

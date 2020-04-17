@@ -1,7 +1,7 @@
 
-export default function generateRandomOperation() {
-    const n1 = Math.floor(Math.random() * 10)
-    const n2 = Math.floor(Math.random() * 10)
+export default function generateRandomOperation(limit) {
+    const n1 = Math.floor(Math.random() * limit)
+    const n2 = Math.floor(Math.random() * limit)
 
     const operation = {
         n1,
