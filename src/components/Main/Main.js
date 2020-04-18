@@ -13,7 +13,7 @@ export default function Main(props) {
     function handleVerify(e) {
       e.preventDefault()
   
-      if(answer == result) {
+      if(Number(answer) === result) {
         answerField.style.border='1px solid #dcdce6'
         newOperation();
         props.setHits(props.hits + 1)
